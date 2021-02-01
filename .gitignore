@@ -7,5 +7,6 @@ blogdown
 dist
 node_modules
 public
+resources
 static
 *.html

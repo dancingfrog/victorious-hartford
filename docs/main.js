@@ -11690,19 +11690,19 @@ var app = (function (exports) {
 
     function get_each_context_1$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[25] = list[i];
-    	child_ctx[29] = i;
+    	child_ctx[26] = list[i];
+    	child_ctx[30] = i;
     	return child_ctx;
     }
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[25] = list[i];
-    	child_ctx[27] = i;
+    	child_ctx[26] = list[i];
+    	child_ctx[28] = i;
     	return child_ctx;
     }
 
-    // (117:4) <GL.OrbitControls maxPolarAngle={Math.PI / 2} {location} {target}>
+    // (121:4) <GL.OrbitControls maxPolarAngle={Math.PI / 2} {location} {target}>
     function create_default_slot_2$1(ctx) {
     	let t0_value = /*captureViewDirection*/ ctx[13](/*location*/ ctx[9], /*target*/ ctx[10]) + "";
     	let t0;
@@ -11732,9 +11732,9 @@ var app = (function (exports) {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if ((!current || dirty & /*location, target*/ 1536) && t0_value !== (t0_value = /*captureViewDirection*/ ctx[13](/*location*/ ctx[9], /*target*/ ctx[10]) + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty[0] & /*location, target*/ 1536) && t0_value !== (t0_value = /*captureViewDirection*/ ctx[13](/*location*/ ctx[9], /*target*/ ctx[10]) + "")) set_data_dev(t0, t0_value);
     			const gl_perspectivecamera_changes = {};
-    			if (dirty & /*location*/ 512) gl_perspectivecamera_changes.location = /*location*/ ctx[9];
+    			if (dirty[0] & /*location*/ 512) gl_perspectivecamera_changes.location = /*location*/ ctx[9];
     			gl_perspectivecamera.$set(gl_perspectivecamera_changes);
     		},
     		i: function intro(local) {
@@ -11757,14 +11757,14 @@ var app = (function (exports) {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(117:4) <GL.OrbitControls maxPolarAngle={Math.PI / 2} {location} {target}>",
+    		source: "(121:4) <GL.OrbitControls maxPolarAngle={Math.PI / 2} {location} {target}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (126:8) {#each Array(heightmap[k].length) as _, i}
+    // (130:8) {#each Array(heightmap[k].length) as _, i}
     function create_each_block_1$2(ctx) {
     	let current;
 
@@ -11774,19 +11774,19 @@ var app = (function (exports) {
     					x: 0,
     					y: 0,
     					z: 0,
-    					w: gridSizeX$1 / /*heightmap*/ ctx[11][/*i*/ ctx[29]].length,
-    					h: 1 * /*heightmap*/ ctx[11][/*k*/ ctx[27]][/*i*/ ctx[29]],
+    					w: gridSizeX$1 / /*heightmap*/ ctx[11][/*i*/ ctx[30]].length,
+    					h: 1 * /*heightmap*/ ctx[11][/*k*/ ctx[28]][/*i*/ ctx[30]],
     					d: gridSizeZ$1 / /*heightmap*/ ctx[11].length
     				}),
     				location: [
-    					-(gridSizeX$1 / 2) + /*i*/ ctx[29] * (gridSizeX$1 / /*heightmap*/ ctx[11][0].length),
+    					-(gridSizeX$1 / 2) + /*i*/ ctx[30] * (gridSizeX$1 / /*heightmap*/ ctx[11][0].length),
     					0,
-    					-(gridSizeZ$1 / 2) + /*k*/ ctx[27] * (gridSizeZ$1 / /*heightmap*/ ctx[11].length)
+    					-(gridSizeZ$1 / 2) + /*k*/ ctx[28] * (gridSizeZ$1 / /*heightmap*/ ctx[11].length)
     				],
     				rotation: [0, 0, 0],
     				scale: [/*w*/ ctx[5], /*h*/ ctx[6], /*d*/ ctx[7]],
     				uniforms: {
-    					color: adjustColor(/*color*/ ctx[3], /*heightmap*/ ctx[11][/*k*/ ctx[27]][/*i*/ ctx[29]])
+    					color: adjustColor(/*color*/ ctx[3], /*heightmap*/ ctx[11][/*k*/ ctx[28]][/*i*/ ctx[30]])
     				}
     			},
     			$$inline: true
@@ -11803,25 +11803,25 @@ var app = (function (exports) {
     		p: function update(ctx, dirty) {
     			const gl_mesh_changes = {};
 
-    			if (dirty & /*heightmap*/ 2048) gl_mesh_changes.geometry = box({
+    			if (dirty[0] & /*heightmap*/ 2048) gl_mesh_changes.geometry = box({
     				x: 0,
     				y: 0,
     				z: 0,
-    				w: gridSizeX$1 / /*heightmap*/ ctx[11][/*i*/ ctx[29]].length,
-    				h: 1 * /*heightmap*/ ctx[11][/*k*/ ctx[27]][/*i*/ ctx[29]],
+    				w: gridSizeX$1 / /*heightmap*/ ctx[11][/*i*/ ctx[30]].length,
+    				h: 1 * /*heightmap*/ ctx[11][/*k*/ ctx[28]][/*i*/ ctx[30]],
     				d: gridSizeZ$1 / /*heightmap*/ ctx[11].length
     			});
 
-    			if (dirty & /*heightmap*/ 2048) gl_mesh_changes.location = [
-    				-(gridSizeX$1 / 2) + /*i*/ ctx[29] * (gridSizeX$1 / /*heightmap*/ ctx[11][0].length),
+    			if (dirty[0] & /*heightmap*/ 2048) gl_mesh_changes.location = [
+    				-(gridSizeX$1 / 2) + /*i*/ ctx[30] * (gridSizeX$1 / /*heightmap*/ ctx[11][0].length),
     				0,
-    				-(gridSizeZ$1 / 2) + /*k*/ ctx[27] * (gridSizeZ$1 / /*heightmap*/ ctx[11].length)
+    				-(gridSizeZ$1 / 2) + /*k*/ ctx[28] * (gridSizeZ$1 / /*heightmap*/ ctx[11].length)
     			];
 
-    			if (dirty & /*w, h, d*/ 224) gl_mesh_changes.scale = [/*w*/ ctx[5], /*h*/ ctx[6], /*d*/ ctx[7]];
+    			if (dirty[0] & /*w, h, d*/ 224) gl_mesh_changes.scale = [/*w*/ ctx[5], /*h*/ ctx[6], /*d*/ ctx[7]];
 
-    			if (dirty & /*color, heightmap*/ 2056) gl_mesh_changes.uniforms = {
-    				color: adjustColor(/*color*/ ctx[3], /*heightmap*/ ctx[11][/*k*/ ctx[27]][/*i*/ ctx[29]])
+    			if (dirty[0] & /*color, heightmap*/ 2056) gl_mesh_changes.uniforms = {
+    				color: adjustColor(/*color*/ ctx[3], /*heightmap*/ ctx[11][/*k*/ ctx[28]][/*i*/ ctx[30]])
     			};
 
     			gl_mesh.$set(gl_mesh_changes);
@@ -11844,18 +11844,18 @@ var app = (function (exports) {
     		block,
     		id: create_each_block_1$2.name,
     		type: "each",
-    		source: "(126:8) {#each Array(heightmap[k].length) as _, i}",
+    		source: "(130:8) {#each Array(heightmap[k].length) as _, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (125:4) {#each Array(heightmap.length) as _, k}
+    // (129:4) {#each Array(heightmap.length) as _, k}
     function create_each_block$2(ctx) {
     	let each_1_anchor;
     	let current;
-    	let each_value_1 = Array(/*heightmap*/ ctx[11][/*k*/ ctx[27]].length);
+    	let each_value_1 = Array(/*heightmap*/ ctx[11][/*k*/ ctx[28]].length);
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -11884,8 +11884,8 @@ var app = (function (exports) {
     			current = true;
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*GL, gridSizeX, heightmap, gridSizeZ, w, h, d, adjustColor, color*/ 2280) {
-    				each_value_1 = Array(/*heightmap*/ ctx[11][/*k*/ ctx[27]].length);
+    			if (dirty[0] & /*heightmap, w, h, d, color*/ 2280) {
+    				each_value_1 = Array(/*heightmap*/ ctx[11][/*k*/ ctx[28]].length);
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -11940,14 +11940,14 @@ var app = (function (exports) {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(125:4) {#each Array(heightmap.length) as _, k}",
+    		source: "(129:4) {#each Array(heightmap.length) as _, k}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (138:4) <GL.Group location={[light.x,light.y,light.z]}>
+    // (142:4) <GL.Group location={[light.x,light.y,light.z]}>
     function create_default_slot_1$1(ctx) {
     	let t;
     	let current;
@@ -12006,14 +12006,14 @@ var app = (function (exports) {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(138:4) <GL.Group location={[light.x,light.y,light.z]}>",
+    		source: "(142:4) <GL.Group location={[light.x,light.y,light.z]}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:0) <GL.Scene bind:gl={webgl} backgroundOpacity=1.0 process_extra_shader_components={process_extra_shader_components}>
+    // (118:0) <GL.Scene bind:gl={webgl} backgroundOpacity=1.0 process_extra_shader_components={process_extra_shader_components}>
     function create_default_slot$2(ctx) {
     	let t0;
     	let t1;
@@ -12110,19 +12110,19 @@ var app = (function (exports) {
     		},
     		p: function update(ctx, dirty) {
     			const gl_target_changes = {};
-    			if (dirty & /*h*/ 64) gl_target_changes.location = [0, /*h*/ ctx[6] / 2, 0];
+    			if (dirty[0] & /*h*/ 64) gl_target_changes.location = [0, /*h*/ ctx[6] / 2, 0];
     			gl_target.$set(gl_target_changes);
     			const gl_orbitcontrols_changes = {};
-    			if (dirty & /*location*/ 512) gl_orbitcontrols_changes.location = /*location*/ ctx[9];
-    			if (dirty & /*target*/ 1024) gl_orbitcontrols_changes.target = /*target*/ ctx[10];
+    			if (dirty[0] & /*location*/ 512) gl_orbitcontrols_changes.location = /*location*/ ctx[9];
+    			if (dirty[0] & /*target*/ 1024) gl_orbitcontrols_changes.target = /*target*/ ctx[10];
 
-    			if (dirty & /*$$scope, location, target*/ 1073743360) {
+    			if (dirty[0] & /*location, target*/ 1536 | dirty[1] & /*$$scope*/ 1) {
     				gl_orbitcontrols_changes.$$scope = { dirty, ctx };
     			}
 
     			gl_orbitcontrols.$set(gl_orbitcontrols_changes);
 
-    			if (dirty & /*Array, heightmap, GL, gridSizeX, gridSizeZ, w, h, d, adjustColor, color*/ 2280) {
+    			if (dirty[0] & /*heightmap, w, h, d, color*/ 2280) {
     				each_value = Array(/*heightmap*/ ctx[11].length);
     				validate_each_argument(each_value);
     				let i;
@@ -12151,9 +12151,9 @@ var app = (function (exports) {
     			}
 
     			const gl_group_changes = {};
-    			if (dirty & /*light*/ 16) gl_group_changes.location = [/*light*/ ctx[4].x, /*light*/ ctx[4].y, /*light*/ ctx[4].z];
+    			if (dirty[0] & /*light*/ 16) gl_group_changes.location = [/*light*/ ctx[4].x, /*light*/ ctx[4].y, /*light*/ ctx[4].z];
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 1) {
     				gl_group_changes.$$scope = { dirty, ctx };
     			}
 
@@ -12206,7 +12206,7 @@ var app = (function (exports) {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(114:0) <GL.Scene bind:gl={webgl} backgroundOpacity=1.0 process_extra_shader_components={process_extra_shader_components}>",
+    		source: "(118:0) <GL.Scene bind:gl={webgl} backgroundOpacity=1.0 process_extra_shader_components={process_extra_shader_components}>",
     		ctx
     	});
 
@@ -12226,7 +12226,7 @@ var app = (function (exports) {
     	let current;
 
     	function gl_scene_gl_binding(value) {
-    		/*gl_scene_gl_binding*/ ctx[16].call(null, value);
+    		/*gl_scene_gl_binding*/ ctx[17].call(null, value);
     	}
 
     	let gl_scene_props = {
@@ -12244,37 +12244,37 @@ var app = (function (exports) {
     	binding_callbacks.push(() => bind(gl_scene, "gl", gl_scene_gl_binding));
 
     	function controls_init_binding(value) {
-    		/*controls_init_binding*/ ctx[17].call(null, value);
+    		/*controls_init_binding*/ ctx[18].call(null, value);
     	}
 
     	function controls_color_binding(value) {
-    		/*controls_color_binding*/ ctx[18].call(null, value);
+    		/*controls_color_binding*/ ctx[19].call(null, value);
     	}
 
     	function controls_options_binding(value) {
-    		/*controls_options_binding*/ ctx[19].call(null, value);
+    		/*controls_options_binding*/ ctx[20].call(null, value);
     	}
 
     	function controls_rangeOptions_binding(value) {
-    		/*controls_rangeOptions_binding*/ ctx[20].call(null, value);
+    		/*controls_rangeOptions_binding*/ ctx[21].call(null, value);
     	}
 
     	function controls_rangeValues_binding(value) {
-    		/*controls_rangeValues_binding*/ ctx[21].call(null, value);
+    		/*controls_rangeValues_binding*/ ctx[22].call(null, value);
     	}
 
     	function controls_viewLocation_binding(value) {
-    		/*controls_viewLocation_binding*/ ctx[22].call(null, value);
+    		/*controls_viewLocation_binding*/ ctx[23].call(null, value);
     	}
 
     	function controls_viewTarget_binding(value) {
-    		/*controls_viewTarget_binding*/ ctx[23].call(null, value);
+    		/*controls_viewTarget_binding*/ ctx[24].call(null, value);
     	}
 
     	let controls_props = { title: /*title*/ ctx[2] };
 
-    	if (/*controlInit*/ ctx[12] !== void 0) {
-    		controls_props.init = /*controlInit*/ ctx[12];
+    	if (/*navControlInit*/ ctx[12] !== void 0) {
+    		controls_props.init = /*navControlInit*/ ctx[12];
     	}
 
     	if (/*color*/ ctx[3] !== void 0) {
@@ -12309,7 +12309,7 @@ var app = (function (exports) {
     	binding_callbacks.push(() => bind(controls, "rangeValues", controls_rangeValues_binding));
     	binding_callbacks.push(() => bind(controls, "viewLocation", controls_viewLocation_binding));
     	binding_callbacks.push(() => bind(controls, "viewTarget", controls_viewTarget_binding));
-    	controls.$on("move", /*move_handler*/ ctx[24]);
+    	controls.$on("move", /*move_handler*/ ctx[25]);
 
     	const block = {
     		c: function create() {
@@ -12326,14 +12326,14 @@ var app = (function (exports) {
     			mount_component(controls, target, anchor);
     			current = true;
     		},
-    		p: function update(ctx, [dirty]) {
+    		p: function update(ctx, dirty) {
     			const gl_scene_changes = {};
 
-    			if (dirty & /*$$scope, light, heightmap, w, h, d, color, location, target*/ 1073745656) {
+    			if (dirty[0] & /*light, heightmap, w, h, d, color, location, target*/ 3832 | dirty[1] & /*$$scope*/ 1) {
     				gl_scene_changes.$$scope = { dirty, ctx };
     			}
 
-    			if (!updating_gl && dirty & /*webgl*/ 256) {
+    			if (!updating_gl && dirty[0] & /*webgl*/ 256) {
     				updating_gl = true;
     				gl_scene_changes.gl = /*webgl*/ ctx[8];
     				add_flush_callback(() => updating_gl = false);
@@ -12341,45 +12341,45 @@ var app = (function (exports) {
 
     			gl_scene.$set(gl_scene_changes);
     			const controls_changes = {};
-    			if (dirty & /*title*/ 4) controls_changes.title = /*title*/ ctx[2];
+    			if (dirty[0] & /*title*/ 4) controls_changes.title = /*title*/ ctx[2];
 
-    			if (!updating_init && dirty & /*controlInit*/ 4096) {
+    			if (!updating_init && dirty[0] & /*navControlInit*/ 4096) {
     				updating_init = true;
-    				controls_changes.init = /*controlInit*/ ctx[12];
+    				controls_changes.init = /*navControlInit*/ ctx[12];
     				add_flush_callback(() => updating_init = false);
     			}
 
-    			if (!updating_color && dirty & /*color*/ 8) {
+    			if (!updating_color && dirty[0] & /*color*/ 8) {
     				updating_color = true;
     				controls_changes.color = /*color*/ ctx[3];
     				add_flush_callback(() => updating_color = false);
     			}
 
-    			if (!updating_options && dirty & /*options*/ 1) {
+    			if (!updating_options && dirty[0] & /*options*/ 1) {
     				updating_options = true;
     				controls_changes.options = /*options*/ ctx[0];
     				add_flush_callback(() => updating_options = false);
     			}
 
-    			if (!updating_rangeOptions && dirty & /*ranges*/ 2) {
+    			if (!updating_rangeOptions && dirty[0] & /*ranges*/ 2) {
     				updating_rangeOptions = true;
     				controls_changes.rangeOptions = /*ranges*/ ctx[1];
     				add_flush_callback(() => updating_rangeOptions = false);
     			}
 
-    			if (!updating_rangeValues && dirty & /*ranges*/ 2) {
+    			if (!updating_rangeValues && dirty[0] & /*ranges*/ 2) {
     				updating_rangeValues = true;
     				controls_changes.rangeValues = /*ranges*/ ctx[1].values;
     				add_flush_callback(() => updating_rangeValues = false);
     			}
 
-    			if (!updating_viewLocation && dirty & /*location*/ 512) {
+    			if (!updating_viewLocation && dirty[0] & /*location*/ 512) {
     				updating_viewLocation = true;
     				controls_changes.viewLocation = /*location*/ ctx[9];
     				add_flush_callback(() => updating_viewLocation = false);
     			}
 
-    			if (!updating_viewTarget && dirty & /*target*/ 1024) {
+    			if (!updating_viewTarget && dirty[0] & /*target*/ 1024) {
     				updating_viewTarget = true;
     				controls_changes.viewTarget = /*target*/ ctx[10];
     				add_flush_callback(() => updating_viewTarget = false);
@@ -12472,22 +12472,26 @@ var app = (function (exports) {
     	console.log(heightmap);
 
     	/* This is a helper callback to bind custom uniforms/attributes
-     * and to pass custom buffers. I inserted a hook directly in the
-     * @sveltejs/gl source for this purpose:
-     * https://github.com/Real-Currents/SvelteGL/tree/real/currents
+     * and to pass custom buffers, like the ad-hoc texture coords
+     * used in normal-selected texture shader below. I inserted a
+     * hook directly in the @sveltejs/gl source for this purpose
      */
     	let process_extra_shader_components = (gl, material, model) => {
     		// console.log("Process Extra Shader Components");
     		const program = material.program;
     	};
 
-    	let controlInit;
+    	let updateWorld = event => {
+    		console.log(event);
+    	};
+
+    	let navControlInit;
 
     	onMount(() => {
     		let frame;
 
-    		if (typeof controlInit === "function") {
-    			controlInit();
+    		if (typeof navControlInit === "function") {
+    			navControlInit();
     		}
 
     		const loop = () => {
@@ -12521,8 +12525,8 @@ var app = (function (exports) {
     	}
 
     	function controls_init_binding(value) {
-    		controlInit = value;
-    		$$invalidate(12, controlInit);
+    		navControlInit = value;
+    		$$invalidate(12, navControlInit);
     	}
 
     	function controls_color_binding(value) {
@@ -12585,7 +12589,8 @@ var app = (function (exports) {
     		gridSizeX: gridSizeX$1,
     		gridSizeZ: gridSizeZ$1,
     		process_extra_shader_components,
-    		controlInit,
+    		updateWorld,
+    		navControlInit,
     		Float32Array,
     		console,
     		parseInt,
@@ -12610,7 +12615,8 @@ var app = (function (exports) {
     		if ("location" in $$props) $$invalidate(9, location = $$props.location);
     		if ("target" in $$props) $$invalidate(10, target = $$props.target);
     		if ("process_extra_shader_components" in $$props) $$invalidate(14, process_extra_shader_components = $$props.process_extra_shader_components);
-    		if ("controlInit" in $$props) $$invalidate(12, controlInit = $$props.controlInit);
+    		if ("updateWorld" in $$props) $$invalidate(15, updateWorld = $$props.updateWorld);
+    		if ("navControlInit" in $$props) $$invalidate(12, navControlInit = $$props.navControlInit);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -12630,9 +12636,10 @@ var app = (function (exports) {
     		location,
     		target,
     		heightmap,
-    		controlInit,
+    		navControlInit,
     		captureViewDirection,
     		process_extra_shader_components,
+    		updateWorld,
     		data,
     		gl_scene_gl_binding,
     		controls_init_binding,
@@ -12649,7 +12656,7 @@ var app = (function (exports) {
     class VizRApp extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$g, create_fragment$g, safe_not_equal, { title: 2, options: 0, ranges: 1 });
+    		init(this, options, instance$g, create_fragment$g, safe_not_equal, { title: 2, options: 0, ranges: 1 }, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
