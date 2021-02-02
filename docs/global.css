@@ -46,6 +46,10 @@ h1 {
     font-family: 'Lion kinG', 'Liberation Serif', serif;
 }
 
+div, a, p, td {
+    font-size: 1.25rem;
+}
+
 a {
     color: pink;
     text-decoration: none;
