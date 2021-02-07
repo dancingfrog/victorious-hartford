@@ -21,15 +21,29 @@ if (!require("knitr")) {
 knitr::opts_chunk$set(cache = FALSE)
 knitr::opts_chunk$set(echo = TRUE)
 
-if (!require(akima) || !require(magick)  || !require(png)  || !require(reshape2) || !require(viridis)) {
+if (!require(akima) || !require(magick)  || !require(png)  || !require(rgp) || !require(reshape2) || !require(viridis)) {
     install.packages(c("akima", "ggplot2", "magick", "png", "reshape2", "viridis"))
-    devtools::install_github("tylermorganwall/rayimage@7a9a138e10e19119c88e960f9cfb191d1fdae002")
-    devtools::install_github("tylermorganwall/terrainmeshr@e112055e47033508cc45c8246b8dc0a0e94920f7")
-    devtools::install_github("tylermorganwall/rayshader@d0c9bd94be95c44eff6e7d8da5eadff070dc11db")
-    devtools::install_github("MilesMcBain/slippymath")
-    devtools::install_github("neilcharles/geoviz")
+    devtools::install_github("tylermorganwall/rayimage@7a9a138e10e19119c88e960f9cfb191d1fdae002", upgrade = FALSE)
+    devtools::install_github("tylermorganwall/terrainmeshr@e112055e47033508cc45c8246b8dc0a0e94920f7", upgrade = FALSE)
+    devtools::install_github("tylermorganwall/rayshader@d0c9bd94be95c44eff6e7d8da5eadff070dc11db", upgrade = FALSE)
+    devtools::install_version("rgl", version = "0.100.19", dependencies = FALSE)
+    devtools::install_github("MilesMcBain/slippymath", upgrade = FALSE)
+    devtools::install_github("neilcharles/geoviz", upgrade = FALSE)
 }
 ```
+
+```{r hartford_survey, cache = FALSE, echo = FALSE}
+if (!require(googlesheets4)) {
+    devtools::install_github("tidyverse/googlesheets4", upgrade = FALSE)
+}
+
+googlesheets4::gs4_deauth()
+hartford_campaign_survey <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1qQ5ZbMdO3ai_rVmLCdVCdf-2EN5fxqdE3sU3bhRItiE/edit?usp=sharing")
+
+
+
+```
+
 
 ```{r geoviz_test, cache = FALSE, dev.args = list(bg = 'transparent'), echo = FALSE}
 options(warn = -1)

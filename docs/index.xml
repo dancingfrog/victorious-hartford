@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hartford Strategic Vision 2020 on Victorious Hartford</title>
-    <link>/</link>
-    <description>Recent content in Hartford Strategic Vision 2020 on Victorious Hartford</description>
+    <title>Victorious Hartford</title>
+    <link>victorious-hartford/</link>
+    <description>Recent content on Victorious Hartford</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="victorious-hartford/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>

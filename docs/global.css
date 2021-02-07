@@ -2,18 +2,6 @@
   Define your resets here or use something like Normalize.css if you like
  */
 
-@font-face {
-    font-family: 'Lion kinG';
-    url('/vision/lion_king.woff2') format('woff2'), /* Super Modern Browsers */
-    url('/vision/lion_king.ttf')  format('truetype'); /* Safari, Android, iOS */
-}
-
-@font-face {
-    font-family: 'Liberation Serif';
-    url('/vision/liberation-serif.woff2') format('woff2'), /* Super Modern Browsers */
-    url('/vision/liberation-serif/LiberationSerif-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
-}
-
 html,
 body {
   margin: 0;
@@ -24,6 +12,18 @@ main {
   height: 100%;
 }
 
+@font-face {
+    font-family: 'Lion kinG';
+    src: url('/vision/lion_king.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/vision/lion_king.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: 'Liberation Serif';
+    src: url('/vision/liberation-serif.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/vision/liberation-serif/LiberationSerif-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
 html {
     font-family: -apple-system, BlinkMacSystemFont, 'Fira Sans', 'Cantarell', 'Droid Sans', 'Roboto', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -31,6 +31,8 @@ html {
 }
 
 body {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: #e8c063;
     font-weight: bolder;
