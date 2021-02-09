@@ -21,7 +21,7 @@ if (!require("knitr")) {
 knitr::opts_chunk$set(cache = FALSE)
 knitr::opts_chunk$set(echo = TRUE)
 
-if (!require(akima) || !require(magick)  || !require(png)  || !require(rgp) || !require(reshape2) || !require(viridis)) {
+if (!require(akima) || !require(magick)  || !require(png)  || !require(rgl) || !require(reshape2) || !require(viridis)) {
     install.packages(c("akima", "ggplot2", "magick", "png", "reshape2", "viridis"))
     devtools::install_github("tylermorganwall/rayimage@7a9a138e10e19119c88e960f9cfb191d1fdae002", upgrade = FALSE)
     devtools::install_github("tylermorganwall/terrainmeshr@e112055e47033508cc45c8246b8dc0a0e94920f7", upgrade = FALSE)
