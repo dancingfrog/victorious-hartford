@@ -33,14 +33,14 @@ if (!require(akima) || !require(magick)  || !require(png)  || !require(rgl) || !
 ```
 
 ```{r hartford_survey, cache = FALSE, echo = FALSE}
-if (!require(googlesheets4)) {
+options(warn = -1)
+if (!suppressMessages(require(googlesheets4))) {
+    devtools::install_github("tidyverse/googledrive", upgrade = FALSE)
     devtools::install_github("tidyverse/googlesheets4", upgrade = FALSE)
 }
 
 googlesheets4::gs4_deauth()
 hartford_campaign_survey <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1qQ5ZbMdO3ai_rVmLCdVCdf-2EN5fxqdE3sU3bhRItiE/edit?usp=sharing")
-
-
 
 ```
 
