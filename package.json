@@ -18,7 +18,7 @@
     "live-preview:blogdown": "npm run start -- ",
     "prebuild": "rimraf dist",
     "postinstall": "Rscript src/install.R",
-    "start": "Rscript src/start.R; echo 'servr has stopped'",
+    "start": "http-server -p 3000 docs",
     "start:dev": "rollup -c -w"
   },
   "author": "",
@@ -76,5 +76,8 @@
   },
   "resolutions": {
     "natives": "1.1.6"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
   }
 }
