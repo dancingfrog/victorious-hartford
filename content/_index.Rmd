@@ -71,17 +71,17 @@ if (file.exists(paste0(working_dir, "/content/data/65-Elevation_DEMHF0p7m2016_N5
     localdem <- file.choose()
 }
 
-DEM <- raster(localdem)
-
-sunangle <- 270
-
-zscale <- 25
-
-# Get a Stamen map that will cover our DEM
-stamen_overlay <- slippy_overlay(DEM, image_source = "stamen", image_type = "watercolor", png_opacity = 0.3)
-
-# Make an elevation shading layer with dark valleys and light peaks (not essential but I like it!)
-suppressMessages(elevation_overlay <- elevation_shade(DEM, elevation_palette = c("#000000", "#FFFFFF"), png_opacity = 0.6))
+#DEM <- raster(localdem)
+#
+#sunangle <- 270
+#
+#zscale <- 25
+#
+## Get a Stamen map that will cover our DEM
+#stamen_overlay <- slippy_overlay(DEM, image_source = "stamen", image_type = "watercolor", png_opacity = 0.3)
+#
+## Make an elevation shading layer with dark valleys and light peaks (not essential but I like it!)
+#suppressMessages(elevation_overlay <- elevation_shade(DEM, elevation_palette = c("#000000", "#FFFFFF"), png_opacity = 0.6))
 
 # Calculate the 'rayshader' scene (see 'rayshader' documentation)
 elmat <- matrix(
