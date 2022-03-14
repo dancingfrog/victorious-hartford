@@ -13,6 +13,12 @@ Victorious Hartford
 ```{r setup, cache = FALSE, echo = FALSE, include = FALSE}
 options(warn = -1)
 working_dir <- getwd()
+# print(grepl("/content", getwd(), ignore.case = TRUE))
+if (grepl("/content", getwd(), ignore.case = TRUE)) {
+  working_dir <- stringr::str_replace(getwd(), "/content", "")
+  setwd(working_dir)
+  print("")
+}
 print(working_dir)
 if (!require("knitr")) {
   install.packages("knitr")
@@ -22,13 +28,13 @@ knitr::opts_chunk$set(cache = FALSE)
 knitr::opts_chunk$set(echo = TRUE)
 
 if (!require(akima) || !require(magick)  || !require(png)  || !require(rgl) || !require(reshape2) || !require(viridis)) {
-    install.packages(c("akima", "ggplot2", "magick", "png", "reshape2", "viridis"))
-    devtools::install_github("tylermorganwall/rayimage@7a9a138e10e19119c88e960f9cfb191d1fdae002", upgrade = FALSE)
-    devtools::install_github("tylermorganwall/terrainmeshr@e112055e47033508cc45c8246b8dc0a0e94920f7", upgrade = FALSE)
-    devtools::install_github("tylermorganwall/rayshader@d0c9bd94be95c44eff6e7d8da5eadff070dc11db", upgrade = FALSE)
-    devtools::install_version("rgl", version = "0.100.19", dependencies = FALSE)
-    devtools::install_github("MilesMcBain/slippymath", upgrade = FALSE)
-    devtools::install_github("neilcharles/geoviz", upgrade = FALSE)
+  install.packages(c("akima", "devtools", "ggplot2", "magick", "png", "reshape2", "viridis"))
+  devtools::install_version("rgl", version = "0.100.19", dependencies = FALSE)
+  devtools::install_github("tylermorganwall/rayimage@7a9a138e10e19119c88e960f9cfb191d1fdae002", upgrade = FALSE)
+  devtools::install_github("tylermorganwall/terrainmeshr@e112055e47033508cc45c8246b8dc0a0e94920f7", upgrade = FALSE)
+  devtools::install_github("tylermorganwall/rayshader@d0c9bd94be95c44eff6e7d8da5eadff070dc11db", upgrade = FALSE)
+  devtools::install_github("MilesMcBain/slippymath", upgrade = FALSE)
+  devtools::install_github("neilcharles/geoviz", upgrade = FALSE)
 }
 ```
 
@@ -59,8 +65,8 @@ igc <- example_igc()
 DEM <- example_raster()
 
 # import desert heightmap demo
-if (file.exists("data/57-Elevation_DEMHF0p7m2016_N5145E281.img")) {
-    localdem <- raster::raster("data/57-Elevation_DEMHF0p7m2016_N5145E281.img")
+if (file.exists(paste0(working_dir, "/content/data/65-Elevation_DEMHF0p7m2016_N5117E267.img"))) {
+    localdem <- paste0(working_dir, "/content/data/65-Elevation_DEMHF0p7m2016_N5117E267.img")
 } else {
     localdem <- file.choose()
 }
@@ -77,30 +83,31 @@ stamen_overlay <- slippy_overlay(DEM, image_source = "stamen", image_type = "wat
 # Make an elevation shading layer with dark valleys and light peaks (not essential but I like it!)
 suppressMessages(elevation_overlay <- elevation_shade(DEM, elevation_palette = c("#000000", "#FFFFFF"), png_opacity = 0.6))
 
-## Calculate the 'rayshader' scene (see 'rayshader' documentation)
-#elmat <- matrix(
-#  raster::extract(DEM, raster::extent(DEM), method = 'bilinear'),
-#  nrow = ncol(DEM),
-#  ncol = nrow(DEM)
-#)
-#
-#scene <- elmat %>%
-#  sphere_shade(sunangle = sunangle, texture = "bw") %>%
-#  add_overlay(elevation_overlay) %>%
-#  add_overlay(stamen_overlay)
-#
-#scene %>%
-#  plot_map()
+# Calculate the 'rayshader' scene (see 'rayshader' documentation)
+elmat <- matrix(
+ raster::extract(DEM, raster::extent(DEM), method = 'bilinear'),
+ nrow = ncol(DEM),
+ ncol = nrow(DEM)
+)
 
-## Render the 'rayshader' scene
-#rayshader::plot_3d(
-#  scene,
-#  elmat,
-#  zscale = zscale,
-#  solid = FALSE,
-#  shadow = TRUE,
-#  shadowdepth = -100
-#)
+scene <- elmat %>%
+ sphere_shade(sunangle = sunangle, texture = "bw") %>%
+ add_overlay(elevation_overlay) %>%
+ add_overlay(stamen_overlay)
+
+# Render the 'rayshader' scene
+rayshader::plot_3d(
+  scene,
+  elmat,
+  zscale = zscale,
+  solid = FALSE,
+  shadow = TRUE,
+  shadowdepth = -100
+)
+
+# Render 2D snapshot
+scene %>%
+ plot_map()
 ```
 
 <p style="margin-top: -35px;"></p>

@@ -1,8 +1,6 @@
+*.R*
 .idea
 .ipynb_checkpoints
-.RData
-.Rhistory
-*.Rproj*
 blogdown
 dist
 node_modules
